@@ -1,0 +1,34 @@
+version: "3.7"
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
+    ports:
+      - 9200:9200
+      - 9300:9300
+    container_name: es_container
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    networks:
+      - mynet
+  
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.5.1
+    container_name: kibana_container
+    volumes:
+      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+    networks:
+      - mynet
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+  
+networks: 
+  mynet:
+    driver: bridge
+
+volumes:
+  es-data: #left empty as default arguments work fine
