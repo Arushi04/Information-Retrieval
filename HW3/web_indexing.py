@@ -5,11 +5,9 @@ import argparse
 from os.path import isfile
 from os.path import join as fjoin
 from urlDetails import URL
+import json
 
-es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-
-def create_index(index):
-
+def create_index(index, es):
     print("inside creating index")
     if es.indices.exists(index):
         print("Index already exists")
@@ -88,16 +86,14 @@ def create_index(index):
         es.indices.create(index=index, body=request_body, ignore=400)
 
 
-def store_in_ES(index, url, title, content,inlinks, outlinks):
+def store_in_ES(index, url, title, content,inlinks, outlinks, es):
     """Store an id, the URL, the HTTP headers, the page contents cleaned (with term positions),
      the raw html, and a list of all in-links (known) and out-links for the page."""
     #print("storing")
+
     doc = {
-        #'docno': url,
         'head': title,
         'text': content,
-        #'http_header': httpheader['Content-Type'],
-        #'rawhtml': rawhtml,
         'inlinks': inlinks,
         'outlinks': outlinks
     }
@@ -105,9 +101,10 @@ def store_in_ES(index, url, title, content,inlinks, outlinks):
 
 
 def main(args):
+    es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
     #create the settings and mapping of the index
-    create_index(args.index)
+    create_index(args.index, es)
 
     checkpoint_path = fjoin(args.ckp, "checkpoint.%d." % args.ckp_no)
 
@@ -129,14 +126,14 @@ def main(args):
 
         url = res['docno']
         title = res['head']
-        #httpheader = res['httpheader']
         content = res['text']
-        #rawhtml = res['rawhtml']
-
-        inlinks = frontier_map[url].inlinks
-        outlinks = frontier_map[url].outlinks
-
-        store_in_ES(args.index, url, title, content, inlinks, outlinks)
+        inlinkData = list(frontier_map[url].inlinks)
+        outlinkData = list(frontier_map[url].outlinks)
+        print("inlink data : ", inlinkData)
+        inlinks = json.dumps(inlinkData)
+        outlinks = json.dumps(outlinkData)
+        print("inlinks after json dumping : ", inlinks)
+        store_in_ES(args.index, url, title, content, inlinks, outlinks, es)
 
 
 if __name__ == "__main__":
@@ -144,7 +141,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Arguments')
     parser.add_argument("--dir", type=str, default="./output/", help="")
     parser.add_argument("--index", type=str, default="church_data", help="")
-    parser.add_argument("--ckp_no", type=int, default=1000, help="")
+    parser.add_argument("--ckp_no", type=int, default=40000, help="")
     args = parser.parse_args()
 
     # additional parse option
