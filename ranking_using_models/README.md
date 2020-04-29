@@ -19,15 +19,13 @@ This file implements all the vector and language models to rank the documents in
 ## Performance Enhancement:
 
 1. After seeing the performance above, we would be now adding terms with high term frequency to get better precision and highly relevant documents.
-
-*python run_ec1_ec2.py*
-*--outf queryfile_ec1.txt*
-*--method ec1 --cutoff_per_query 3*
+      *python run_ec1_ec2.py*
+      *--outf queryfile_ec1.txt*
+      *--method ec1 --cutoff_per_query 3*
 
 2. To increase the precision, we will now try with adding synonymns of the tsemmed query terms to the query. 
-
-*python run_ec1_ec2.py*
-*--outf queryfile_ec2.txt *
-*--method ec2*
-*--cutoff_per_query 1*
-*--query_fname queryfile.txt*
+      *python run_ec1_ec2.py*
+      *--outf queryfile_ec2.txt *
+      *--method ec2*
+      *--cutoff_per_query 1*
+      *--query_fname queryfile.txt*
