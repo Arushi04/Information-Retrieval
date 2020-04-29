@@ -14,7 +14,7 @@ ttf = {}
 doc_count = None
 sum_ttf = None
 
-INDEX_NAME = "hw1_dataset1"
+INDEX_NAME = "ap_dataset"
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 empty_body = {
     'query':
