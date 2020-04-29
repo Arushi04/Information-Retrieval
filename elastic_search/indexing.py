@@ -7,8 +7,8 @@ from datetime import datetime
 from elasticsearch import helpers
 
 es = Elasticsearch([{'host':'localhost','port':9200}])
-dir_path = "/Users/arushi/Documents/Spring2020/CS6200/Assignments/AP_DATA/ap89_collection"
-INDEX_NAME = "hw1_dataset1"
+dir_path = "AP_DATA/ap89_collection"
+INDEX_NAME = "ap_dataset"
 
 request_body = {
     "settings": {
@@ -52,7 +52,7 @@ request_body = {
     }
 }
 
-request = es.indices.create(index=INDEX_NAME, body=request_body, ignore=400)
+request = es.indices.create(index=INDEX_NAME, body=request_body, ignore=400). #creates an index 
 print(request)
 
 for fname in os.listdir(dir_path):
@@ -87,5 +87,5 @@ for fname in os.listdir(dir_path):
                         'text': current_text
                     }
 
-                    res = es.index(index=INDEX_NAME, id=current_docid, body=doc)
+                    res = es.index(index=INDEX_NAME, id=current_docid, body=doc). #indexes the data
                     current_text = []
