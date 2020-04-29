@@ -17,7 +17,7 @@ This file implements all the vector and language models to rank the documents in
 
 ### Results of each model:
 
-|**Model Names   | Average Precision   | Precision at 10  | Precision at 30**    |  
+|**Model Names   | Average Precision   | Precision at 10  | Precision at 30**   |  
 |--------------- | ------------------  | ----------------  | ------------------  |
 |ES Built in     |	     0.2063	    |     0.3720	    |       0.3347.       |
 |Okapi tf	       |       0.0736	     |     0.3800	     |     0.3120.       |
@@ -43,9 +43,24 @@ This file implements all the vector and language models to rank the documents in
 |Laplace Smoothing	|0.2347	|0.4400	|0.3373|
 |Jelinek Mercer Smoothing	|0.2933	|0.4000	|0.3667|
 
+
+
+
 2. Now, we will try with adding synonymns of the stemmed query terms to the query to see if it improves the precision.    
       *python run_ec1_ec2.py*
       *--outf queryfile_ec2.txt *
       *--method ec2*
       *--cutoff_per_query 1*
       *--query_fname queryfile.txt*
+      
+      
+|**Model Names   | Average Precision   | Precision at 10  | Precision at 30**    |  
+|--------------- | ------------------  | ----------------  | ------------------  |
+|ES Built in	|0.3077	|0.4360	|0.3587 |
+|Okapi tf	|0.2716	|0.4560	|0.3573. |
+|Tf-idf	|0.3098	|0.4520	|0.3840.  |
+|Okapi BM25	|0.3160	|0.4560	|0.3813|
+|Laplace Smoothing	|0.2486	|0.4280	|0.3480|
+|Jelinek Mercer Smoothing	|0.2930	|0.4000	|0.3667|
+      
+ 
