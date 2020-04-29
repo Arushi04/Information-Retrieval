@@ -7,7 +7,6 @@ import operator
 from collections import Counter
 
 '''Setting default arguments and using these args to change the params through console if required
-
 EC1 : python run_ec1_ec2.py --outf queryfile_ec1.txt --method ec1 --cutoff_per_query 3
 EC2 : python run_ec1_ec2.py --outf queryfile_ec2.txt --method ec2 --cutoff_per_query 1 --query_fname queryfile_ec1.txt
 '''
@@ -85,7 +84,6 @@ def get_SignificantTerms(query_term):
                 }
             }
         },
-        # "size": 0
     }
 
     result = es.search(index=args.index_name, body=query_body)
