@@ -1,6 +1,6 @@
 As a first step, we have cleaned the data and indexed it on elastic search. Now, we will be matching the queries against the indexed dataset on ES, rank the documents for each query and record the performance for each vector and language model.
 
-**_Models used are :_** 
+**_Models used are :_**      
 **a) Vector Models :** ES-built-in(default), Okapi-tf, tf-idf, Okapi-BM25.  
 **b) Language Models :** Unigram LM with Laplace smoothing, Unigram LM with Jelinek-Mercer smoothing.
 
