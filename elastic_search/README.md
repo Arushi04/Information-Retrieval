@@ -16,3 +16,6 @@ c) kibana.yml
 *docker-compose up*
 
 5. Navigate to localhost:9200 to confirm Elasticsearch connection and localhost:5601 to confirm Kibana connection.
+
+
+**Indexing.py** creates an index on elastic search, parses the documents and index them on elastic search.
