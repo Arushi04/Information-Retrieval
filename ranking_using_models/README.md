@@ -6,11 +6,10 @@ As a first step, we have cleaned the data and indexed it on elastic search. Now,
 
 
 ### Files to run:   
-1.
-*python precompute_Stats.py* : creates a dictionary with all the required details of term and field statistics and dumps it as pickle file. We have precomputed because it takes some time to fetch all the relevant data from ES.
 
-2.
-*python queryImplementation.py*
+1. *python precompute_Stats.py* : creates a dictionary with all the required details of term and field statistics and dumps it as pickle file. We have precomputed because it takes some time to fetch all the relevant data from ES.
+
+2. *python queryImplementation.py*
 *--index_name ap_dataset*
 *--queryfile queryfile.txt*
 *--output default/*.  
