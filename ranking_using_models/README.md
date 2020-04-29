@@ -16,7 +16,7 @@ As a first step, we have cleaned the data and indexed it on elastic search. Now,
 This file implements all the vector and language models to rank the documents indexed on elastic search against user queries and write the results to separate files.
 
 
-## Performance Enhancement:
+### Performance Enhancement:
 
 1. After seeing the performance above, we would be now adding terms with high term frequency to get better precision and highly relevant documents.    
       *python run_ec1_ec2.py*
