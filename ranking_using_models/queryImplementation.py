@@ -9,13 +9,11 @@ import operator
 import pickle
 
 '''Setting default arguments and using these args to change the params through console if required
-Default : python queryImplementation.py --queryfile queryfile1.txt --output default/
-EC1 : python queryImplementation.py --queryfile queryfile_ec1.txt --output EC1/
-EC2 : python queryImplementation.py --queryfile queryfile_ec2.txt --output EC2/
+Default : python queryImplementation.py --queryfile queryfile1.txt --output default
 '''
 
 parser = argparse.ArgumentParser(description='Arguments')
-parser.add_argument("--index_name", type=str, default="hw1_dataset1", help="")
+parser.add_argument("--index_name", type=str, default="ap_dataset", help="")
 parser.add_argument("--max_search_size", type=int, default=85000, help="")
 parser.add_argument("--k1", type=float, default=1.2, help="")
 parser.add_argument("--k2", type=float, default=100, help="")
@@ -34,7 +32,7 @@ if not os.path.exists(args.output):
 
 #Setting up the ES connection
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-dir_path = "/Users/arushi/PycharmProjects/InformationRetrieval/HW1"
+dir_path = "InformationRetrieval/"
 filename = args.queryfile
 
 #Getting the vocab size
@@ -129,7 +127,6 @@ def run_all_models(query, doc_ids):
                 laplace += log(p_laplace)
 
                 # Calculating JM Smoothing
-
                 tfd = global_stats['ttf'][query_term] if query_term in global_stats['ttf'] else 1
                 p_jm = (1 - LAMBDA) * (tfd / total_doc_len)
                 lm_jm += log(p_jm)
