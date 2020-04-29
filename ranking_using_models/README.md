@@ -17,8 +17,9 @@ This file implements all the vector and language models to rank the documents in
 
 ### Results of each model:
 
-**Model Names	Average Precision	Precision at 10	Precision at 30**.  
-ES Built in	     0.2063	          0.3720	          0.3347.  
+|**Model Names.  | Average Precision.  | Precision at 10.  | Precision at 30**.  |  
+|--------------- | ------------------  | ----------------  | ------------------  |
+|ES Built in.    |	     0.2063	    |     0.3720	    |       0.3347.       |
 Okapi tf	          0.0736	          0.3800	          0.3120.  
 Tf-idf	          0.2256	          0.4240	          0.3547.  
 Okapi BM25	     0.2046	          0.4000	          0.3507.  
