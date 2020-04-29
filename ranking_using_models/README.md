@@ -33,8 +33,17 @@ This file implements all the vector and language models to rank the documents in
       *python run_ec1_ec2.py*
       *--outf queryfile_ec1.txt*
       *--method ec1 --cutoff_per_query 3*
+      
+|**Model Names   | Average Precision   | Precision at 10  | Precision at 30**    |  
+|--------------- | ------------------  | ----------------  | ------------------  |
+|ES Built in	|0.3092	|0.4320	|0.3720|
+|Okapi tf	|0.2550	|0.4360	|0.3320|
+|Tf-idf	|0.3102	|0.4480	|0.3827|
+|Okapi BM25	|0.3138	|0.4520	|0.3773|
+|Laplace Smoothing	|0.2347	|0.4400	|0.3373|
+|Jelinek Mercer Smoothing	|0.2933	|0.4000	|0.3667|
 
-2. To increase the precision, we will now try with adding synonymns of the tsemmed query terms to the query.     
+2. Now, we will try with adding synonymns of the stemmed query terms to the query to see if it improves the precision.    
       *python run_ec1_ec2.py*
       *--outf queryfile_ec2.txt *
       *--method ec2*
