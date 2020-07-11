@@ -14,6 +14,6 @@ Projects are done in the order:
 
 6. **creating_trecEval** : Trec eval is the script that I have used to assess the model performances. I have written this script in python and it returns the precision, accuracy and recall for each query.
 
-7. **spam_classification** : Here I have worked on spam classification of emails using Logistic Regression, Decision trees and Multinomial Naive Bayes algorithms. This project includes reading the email format of data and cleaning the data. For cleaning, I have used spacy library and have indexed the cleaned data on elastic search for further classification. 
+
 
 
