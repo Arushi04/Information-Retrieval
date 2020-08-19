@@ -1,4 +1,8 @@
-### Information-Retrieval
+# Information-Retrieval
+
+This project covers a lot of concepts of Information Retrieval and text processing. I constructed elastic search index, used vector space models and
+language models to rank the documents, developed web scraper using Beautiful soup and BFS algorithm.  Scraped and ranked documents using page ranking
+algorithm and built my own trec eval file that assess model's performance.
 
 Projects are done in the order:
 
