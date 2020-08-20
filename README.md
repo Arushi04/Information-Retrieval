@@ -6,7 +6,7 @@ algorithm and built my own trec eval file that assess model's performance.
 
 Projects are done in the order:
 
-1. **elastic_search** : Here I have explored elastic search. I have cleaned the dataset which consists of around 85000 documents and their text and indexed it on the elastic search.
+1. [a relative link](/elastic_search)**elastic_search** : Here I have explored elastic search. I have cleaned the dataset which consists of around 85000 documents and their text and indexed it on the elastic search.
 
 2. **ranking_using_models** : I have ranked the documents indexed in elastic search using vector and language models and have compared the model performances.
 
