@@ -1,8 +1,12 @@
-As a first step, we have cleaned the data and indexed it on elastic search. Now, we will be matching the queries against the indexed dataset on ES, rank the documents for each query and record the performance for each vector and language model.
+# Document Ranking using IR models:
+
+The data has been cleaned and indexed on elastic search. Now, we will match the user queries against the indexed dataset on Elastic Search, rank the documents for each query and record the performance for each vector and language model.
 
 **_Models used are :_**      
-**a) Vector Models :** ES-built-in(default), Okapi-tf, tf-idf, Okapi-BM25.  
-**b) Language Models :** Unigram LM with Laplace smoothing, Unigram LM with Jelinek-Mercer smoothing.
+**a) Vector Models :** In VSM, we represent queries and documents as term vectors and compare similarity between them by doing dot product between 2 vectors.            
+         ES-built-in(default), Okapi-tf, tf-idf, Okapi-BM25.  
+**b) Language Models :** Language models tells us the probability of a sequence of words. It ranks the documents based on their probabilities to generate the query terms.       
+Unigram LM with Laplace smoothing, Unigram LM with Jelinek-Mercer smoothing.
 
 
 ### Files to run:   
