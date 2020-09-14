@@ -1,4 +1,4 @@
-# Document Ranking using IR models:
+# Document Ranking using IR models
 
 The data has been cleaned and indexed on elastic search. Now, we will match the user queries against the indexed dataset on Elastic Search, rank the documents for each query and record the performance for each vector and language model.
 
